@@ -36,7 +36,7 @@ namespace FilmStore.UnitTests
         {
             //Arrange
             Film film1 = new Film() { Id = 1L };
-            Film film2 = new Film() { Id = 2L };
+            Film film2 = new Film() { Id = 1L };
 
             //Assert
             Assert.AreEqual(film1, film2);

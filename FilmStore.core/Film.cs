@@ -39,12 +39,12 @@ namespace FilmStore.core
 
         public override bool Equals(object obj)
         {
-            return true;
+            return Id == (obj as Film).Id;
         }
 
         public override int GetHashCode()
         {
-            return 0;
+            return Id.GetHashCode();
         }
     }
 }
