@@ -20,5 +20,15 @@ namespace FilmStore.UnitTests
             Assert.AreEqual(film.Stock, 5);
             Assert.AreEqual(film.Genre, Genre.Science_Fiction);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ConstructorShouldThrowExceptionIfStockNegaative()
+        {
+            //Arrange
+            //Act
+            Film film = new Film("Jurassic Park", new DateTime(1984, 1, 20), -5, Genre.Science_Fiction);
+
+        }
     }
 }
