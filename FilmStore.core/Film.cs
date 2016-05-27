@@ -15,7 +15,10 @@ namespace FilmStore.core
 
         public Film(string title, DateTime released, int stock, Enum genre)
         {
-            
+            Title = title;
+            Released = released;
+            Stock = stock;
+            Genre = genre;
         }
 
         public long id { get; set; }
