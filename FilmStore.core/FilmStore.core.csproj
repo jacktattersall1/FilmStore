@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="Film.cs" />
     <Compile Include="Enums\Genre.cs" />
-    <Compile Include="IFilmRepository.cs" />
+    <Compile Include="FilmRepositoryDB.cs" />
+    <Compile Include="Interfaces\IFilmRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
