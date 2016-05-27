@@ -35,12 +35,24 @@ namespace FilmStore.UnitTests
         public void FilmsWithSameIdShouldBeEqualAndShouldHaveEqualHashCodes()
         {
             //Arrange
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film1 = new Film() { Id = 1L };
+            Film film2 = new Film() { Id = 2L };
 
             //Assert
             Assert.AreEqual(film1, film2);
             Assert.AreEqual(film1.GetHashCode(), film2.GetHashCode());
+        }
+
+        [TestMethod]    
+        public void FilmsWithDifferentIdAndHashCodeSholdNotBeEqual()
+        {
+            //Arrange
+            Film film1 = new Film() { Id = 1L };
+            Film film2 = new Film() { Id = 2L };
+
+            //Assert
+            Assert.AreNotEqual(film1, film2);
+            Assert.AreNotEqual(film1.GetHashCode(), film2.GetHashCode());
         }
     }
 }

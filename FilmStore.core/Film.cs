@@ -23,7 +23,7 @@ namespace FilmStore.core
             Genre = genre;
         }
 
-        public long id { get; set; }
+        public long Id { get; set; }
         public string Title { get; set; }
         public DateTime Released { get; set; }
         public int Stock {
