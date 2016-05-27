@@ -8,6 +8,8 @@ namespace FilmStore.core
 {
     public class Film
     {
+        private int stock;
+
         public Film()
         {
 
@@ -24,7 +26,15 @@ namespace FilmStore.core
         public long id { get; set; }
         public string Title { get; set; }
         public DateTime Released { get; set; }
-        public int Stock { get; set; }
+        public int Stock {
+            get { return stock; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("Stock can't be negative");
+                stock = value;
+            }
+        }
         public Enum Genre { get; set; }
     }
 }
