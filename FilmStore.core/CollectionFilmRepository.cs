@@ -44,7 +44,7 @@ namespace FilmStore.core
 
         public Film SelectByTitle(string title)
         {
-            return films.FirstOrDefault(x => x.Title == "title");
+            return films.FirstOrDefault(x => x.Title == title);
         }
 
         public bool Update(Film film)
