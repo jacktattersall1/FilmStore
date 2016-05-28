@@ -24,7 +24,22 @@ namespace FilmStore.UnitTests
 
             //Assert
             Assert.AreEqual(1, films.Count);
+        }
 
+        [TestMethod]
+        public void InsertReturnsGeneratedId()
+        {
+            //Arrange
+            CollectionFilmRepository sut = new CollectionFilmRepository();    // sut = system under test
+            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film2 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+
+            //act
+            long id1 = sut.Insert(film1);
+            long id2 = sut.Insert(film2);
+
+            //Assert
+            Assert.IsTrue(id1 < id2);
         }
     }
 }

@@ -5,7 +5,12 @@ namespace FilmStore.core
 {
     public class CollectionFilmRepository : IFilmRepository
     {
-        private ICollection<Film> films;
+        private ICollection<Film> films = new HashSet<Film>();
+
+        public CollectionFilmRepository()
+        {
+
+        }
 
         public CollectionFilmRepository(ICollection<Film> films)
         {
