@@ -17,13 +17,13 @@ namespace FilmStore.UnitTests
             //Arrange
             ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            Film film = new Film("Jurassic Park", new DateTime(1984, 1, 20), -5, Genre.Science_Fiction);
+            Film film = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
 
             //act
             long id = sut.Insert(film);
 
             //Assert
-            Assert.AreEqual(id, films.Count);
+            Assert.AreEqual(1, films.Count);
 
         }
     }

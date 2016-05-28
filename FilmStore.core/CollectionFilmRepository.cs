@@ -19,7 +19,8 @@ namespace FilmStore.core
 
         public long Insert(Film film)
         {
-            throw new NotImplementedException();
+            films.Add(film);
+            return film.Id;
         }
 
         public ICollection<Film> SelectAll()
