@@ -34,7 +34,7 @@ namespace FilmStore.core
 
         public ICollection<Film> SearchByTitle(string title)
         {
-            throw new NotImplementedException();
+            return films.Where(x => x.Title.Contains(title)).ToList();
         }
 
         public ICollection<Film> SelectAll()
