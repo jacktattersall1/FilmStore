@@ -32,7 +32,7 @@ namespace FilmStore.UnitTests
             //Arrange
             CollectionFilmRepository sut = new CollectionFilmRepository();    // sut = system under test
             Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
 
             //act
             long id1 = sut.Insert(film1);
@@ -40,6 +40,24 @@ namespace FilmStore.UnitTests
 
             //Assert
             Assert.IsTrue(id1 < id2);
+        }
+
+        [TestMethod]
+        public void DeleteRemovesFilmFromCollection()
+        {
+            //Arrange
+            ICollection<Film> films = new List<Film>();
+            CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
+            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            sut.Insert(film1);
+            sut.Insert(film2);
+
+            //Act
+            bool deleted = sut.Delete(film1);
+
+            //Assert
+            Assert.IsTrue(films.First().Title == "Matrix");
         }
     }
 }
