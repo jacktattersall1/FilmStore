@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionFilmRepository.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Enums\Genre.cs" />
     <Compile Include="FilmRepositoryDB.cs" />
