@@ -34,7 +34,7 @@ namespace FilmStore.core
 
         public ICollection<Film> SelectAll()
         {
-            throw new NotImplementedException();
+            return films;
         }
 
         public Film SelectById(long id)
