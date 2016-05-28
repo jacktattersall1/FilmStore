@@ -39,7 +39,7 @@ namespace FilmStore.core
 
         public Film SelectById(long id)
         {
-            return films.Where(x => x.Id == id).FirstOrDefault();
+            return films.FirstOrDefault(x => x.Id == id);
         }
 
         public Film SelectByTitle(string title)

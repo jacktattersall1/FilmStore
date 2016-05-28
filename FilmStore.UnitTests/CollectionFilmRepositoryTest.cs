@@ -97,5 +97,23 @@ namespace FilmStore.UnitTests
             //Assert
             Assert.AreEqual(filmSelected, film2);
         }
+
+        [TestMethod]
+        public void SelectAllReturnsAllFilms()
+        {
+            //Arrange
+            ICollection<Film> films = new List<Film>();
+            CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
+            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            films.Add(film1);
+            films.Add(film2);
+
+            //Act
+            ICollection<Film> returnedFilms = sut.SelectAll();
+
+            //Assert
+            Assert.AreEqual(2, returnedFilms.Count);
+        }
     }
 }
