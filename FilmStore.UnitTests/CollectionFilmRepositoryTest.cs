@@ -11,19 +11,28 @@ namespace FilmStore.UnitTests
     [TestClass]
     public class CollectionFilmRepositoryTest
     {
+        private static Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 1 };
+        private static Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 2 };
+        private static List<Film> films = new List<Film>();
+
+        [ClassInitialize]
+        public static void RunOnceForAllTests(TestContext context)
+        {
+            films.Add(film1);
+            films.Add(film2);
+        }
+
         [TestMethod]
         public void InsertAddsFilmToCollection()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            Film film = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
 
             //act
-            long id = sut.Insert(film);
+            long id = sut.Insert(film1);
 
             //Assert
-            Assert.AreEqual(1, films.Count);
+            Assert.AreEqual(3, films.Count);
         }
 
         [TestMethod]
@@ -31,9 +40,7 @@ namespace FilmStore.UnitTests
         {
             //Arrange
             CollectionFilmRepository sut = new CollectionFilmRepository();    // sut = system under test
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-
+            
             //act
             long id1 = sut.Insert(film1);
             long id2 = sut.Insert(film2);
@@ -47,9 +54,7 @@ namespace FilmStore.UnitTests
         {
             //Arrange
             CollectionFilmRepository sut = new CollectionFilmRepository();    // sut = system under test
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-
+            
             //Act
             long id1 = sut.Insert(film1);
             long id2 = sut.Insert(film2);
@@ -64,13 +69,8 @@ namespace FilmStore.UnitTests
         public void DeleteRemovesFilmFromCollection()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            sut.Insert(film1);
-            sut.Insert(film2);
-
+            
             //Act
             bool deleted = sut.Delete(film1);
 
@@ -82,15 +82,8 @@ namespace FilmStore.UnitTests
         public void SelectByIdReturnsCorrectFilm()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            film1.Id = 1;
-            film2.Id = 2;
-            films.Add(film1);
-            films.Add(film2);
-
+           
             //Act
             Film filmSelected = sut.SelectById(2L);
 
@@ -102,13 +95,8 @@ namespace FilmStore.UnitTests
         public void SelectAllReturnsAllFilms()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            films.Add(film1);
-            films.Add(film2);
-
+           
             //Act
             ICollection<Film> returnedFilms = sut.SelectAll();
 
@@ -120,13 +108,8 @@ namespace FilmStore.UnitTests
         public void SelectByTitleReturnsCorrectFilm()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            films.Add(film1);
-            films.Add(film2);
-
+            
             //Act
             Film returnedFilm = sut.SelectByTitle("Matrix");
 
@@ -138,16 +121,12 @@ namespace FilmStore.UnitTests
         public void UpdateCorrectlyUpdatesFilmInCollection()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            film1.Id = 1;
-            films.Add(film1);
-
+           
             //Act
-            Film film2 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 3, Genre.Science_Fiction);
-            film2.Id = 1;
-            bool isUpdated = sut.Update(film2);
+            Film film3 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 3, Genre.Science_Fiction);
+            film3.Id = 3;
+            bool isUpdated = sut.Update(film3);
 
             //Assert
             Assert.AreEqual(film2.Stock, films.First().Stock);
@@ -157,16 +136,8 @@ namespace FilmStore.UnitTests
         public void SearchByTitleReturnsCorrectFilms()
         {
             //Arrange
-            ICollection<Film> films = new List<Film>();
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            Film film2 = new Film("Jurassic Park 2", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
-            film1.Id = 1;
-            film2.Id = 2;
-            films.Add(film1);
-            films.Add(film2);
-
-            //Act
+            
             //Act
             Film film3 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 3, Genre.Science_Fiction);
             film2.Id = 1;
