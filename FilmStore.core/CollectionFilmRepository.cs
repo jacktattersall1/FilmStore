@@ -27,6 +27,7 @@ namespace FilmStore.core
         {
             films.Add(film);
             id++;
+            film.Id = id;
             return id;
         }
 
