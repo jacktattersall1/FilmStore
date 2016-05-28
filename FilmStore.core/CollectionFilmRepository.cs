@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FilmStore.core
 {
@@ -38,7 +39,7 @@ namespace FilmStore.core
 
         public Film SelectById(long id)
         {
-            throw new NotImplementedException();
+            return films.Where(x => x.Id == id).FirstOrDefault();
         }
 
         public Film SelectByTitle(string title)
