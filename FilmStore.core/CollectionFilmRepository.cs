@@ -20,7 +20,7 @@ namespace FilmStore.core
 
         public bool Delete(Film film)
         {
-            throw new NotImplementedException();
+            return films.Remove(film);
         }
 
         public long Insert(Film film)

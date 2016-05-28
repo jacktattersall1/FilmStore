@@ -43,6 +43,12 @@ namespace FilmStore.UnitTests
         }
 
         [TestMethod]
+        public void InsertSetsIdOfFilm()
+        {
+
+        }
+
+        [TestMethod]
         public void DeleteRemovesFilmFromCollection()
         {
             //Arrange
