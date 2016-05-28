@@ -49,7 +49,10 @@ namespace FilmStore.core
 
         public bool Update(Film film)
         {
-            throw new NotImplementedException();
+            bool removed = true;
+            removed = films.Remove(film);
+            films.Add(film);
+            return removed;
         }
     }
 }
