@@ -77,5 +77,25 @@ namespace FilmStore.UnitTests
             //Assert
             Assert.IsTrue(films.First().Title == "Matrix");
         }
+
+        [TestMethod]
+        public void SelectByIdReturnsCorrectFilm()
+        {
+            //Arrange
+            ICollection<Film> films = new List<Film>();
+            CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
+            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            film1.Id = 1;
+            film2.Id = 2;
+            films.Add(film1);
+            films.Add(film2);
+
+            //Act
+            Film filmSelected = sut.SelectById(2L);
+
+            //Assert
+            Assert.AreEqual(filmSelected, film2);
+        }
     }
 }
