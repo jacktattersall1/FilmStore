@@ -6,6 +6,7 @@ namespace FilmStore.core
     public class CollectionFilmRepository : IFilmRepository
     {
         private ICollection<Film> films = new HashSet<Film>();
+        private long id;
 
         public CollectionFilmRepository()
         {
@@ -25,7 +26,8 @@ namespace FilmStore.core
         public long Insert(Film film)
         {
             films.Add(film);
-            return film.Id;
+            id++;
+            return id;
         }
 
         public ICollection<Film> SelectAll()
