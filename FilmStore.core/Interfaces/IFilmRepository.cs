@@ -12,6 +12,7 @@ namespace FilmStore.core
         Film SelectById(long id);
         ICollection<Film> SelectAll();
         Film SelectByTitle(string title);
+        ICollection<Film> SearchByTitle(string title);
         bool Update(Film film);
         bool Delete(Film film);
     }

@@ -32,6 +32,11 @@ namespace FilmStore.core
             return id;
         }
 
+        public ICollection<Film> SearchByTitle(string title)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<Film> SelectAll()
         {
             return films;

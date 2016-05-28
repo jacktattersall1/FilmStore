@@ -18,6 +18,11 @@ namespace FilmStore.core
             throw new NotImplementedException();
         }
 
+        public ICollection<Film> SearchByTitle(string title)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<Film> SelectAll()
         {
             throw new NotImplementedException();
