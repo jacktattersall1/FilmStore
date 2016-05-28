@@ -45,7 +45,19 @@ namespace FilmStore.UnitTests
         [TestMethod]
         public void InsertSetsIdOfFilm()
         {
+            //Arrange
+            CollectionFilmRepository sut = new CollectionFilmRepository();    // sut = system under test
+            Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
+            Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
 
+            //Act
+            long id1 = sut.Insert(film1);
+            long id2 = sut.Insert(film2);
+
+            //Assert
+            Assert.IsTrue(film1.Id == id1);
+            Assert.IsTrue(film2.Id == id2);
+            Assert.IsTrue(id1 > 0);
         }
 
         [TestMethod]
