@@ -1,13 +1,20 @@
-﻿using System;
+﻿using FilmStore.core.Properties;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace FilmStore.core
 {
     public class SqlFilmRepository : IFilmRepository
     {
+        private string connectionString = new Settings().connectionString;
+
         public bool Delete(Film film)
         {
-            throw new NotImplementedException();
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryString = "delete from film where " 
+            }
         }
 
         public long Insert(Film film)

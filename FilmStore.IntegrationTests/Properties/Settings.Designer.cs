@@ -26,7 +26,7 @@ namespace FilmStore.IntegrationTests.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("MSI\\SQLEXPRESS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=msi\\sqlexpress;Initial Catalog=FilmStore;Integrated Security=True")]
         public string sqlConnection {
             get {
                 return ((string)(this["sqlConnection"]));

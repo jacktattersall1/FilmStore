@@ -16,7 +16,7 @@ namespace FilmStore.IntegrationTests
     public class SqlFilmRepositoryTest
     {
         [ClassInitialize]
-        public void RunOnceForAll(TestContext context)
+        public static void RunOnceForAll(TestContext context)
         {
             string connectionString = new Settings().sqlConnection;
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -56,7 +56,7 @@ namespace FilmStore.IntegrationTests
             Assert.IsNull(sut.SelectById(id2), "Assertion 7");
         }
 
-        private string sqlBatch =
+        private static string sqlBatch =
             "delete from film;" +
             "dbcc checkident ('Film', reseed, 0);" +
             "insert into Film (title, released, stock, genre) values ('The Shawshank Redemption', '1994-01-01', 10, 1);" +
