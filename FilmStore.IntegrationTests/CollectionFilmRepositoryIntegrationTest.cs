@@ -24,7 +24,7 @@ namespace FilmStore.IntegrationTests
             //Arrange
             var kernel = new StandardKernel(new DependencyInjection());
             ISerializer serializer = kernel.Get<ISerializer>();
-            IFilmRepository sut = kernel.Get<IFilmRepository>(new ConstructorArgument("serializer" ,serializer));
+            IFilmRepository sut = kernel.Get<IFilmRepository>(new ConstructorArgument("serializer", serializer));
 
             Film film1 = new Film("Aliens", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
             Film film2 = new Film("Predator", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);

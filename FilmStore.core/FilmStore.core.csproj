@@ -64,6 +64,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Serializer.cs" />
+    <Compile Include="Repos\SqlFilmRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
