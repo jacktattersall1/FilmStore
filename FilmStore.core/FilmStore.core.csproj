@@ -49,10 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CollectionFilmRepository.cs" />
+    <Compile Include="Interfaces\ISerializer.cs" />
+    <Compile Include="Repos\CollectionFilmRepository.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Enums\Genre.cs" />
-    <Compile Include="FilmRepositoryDB.cs" />
+    <Compile Include="Repos\FilmRepositoryDB.cs" />
     <Compile Include="FilmStoreContext.cs" />
     <Compile Include="Interfaces\IFilmRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

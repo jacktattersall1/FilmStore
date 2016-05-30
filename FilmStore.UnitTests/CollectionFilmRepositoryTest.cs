@@ -22,6 +22,8 @@ namespace FilmStore.UnitTests
             films.Add(film2);
         }
 
+        #region Unit Tests
+
         [TestMethod]
         public void InsertAddsFilmToCollection()
         {
@@ -146,5 +148,8 @@ namespace FilmStore.UnitTests
             //Assert
             Assert.IsTrue(returnedFilms.Count == 2);
         }
+        #endregion
+
+
     }
 }
