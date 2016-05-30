@@ -34,9 +34,9 @@ namespace FilmStore.core
 
         public long Insert(Film film)
         {
-            films.Add(film);
             id++;
             film.Id = id;
+            films.Add(film);
             if(serializer != null)
                 serializer.Write(films);
             return id;

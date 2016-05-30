@@ -18,12 +18,18 @@ namespace FilmStore.core
             using(FileStream fs = new FileStream(path, FileMode.Open))
             {
                 var serializer = new NetDataContractSerializer();
+                return serializer.ReadObject(fs) as ICollection<Film>;
             }
         }
 
         public void Write(ICollection<Film> films)
         {
-            throw new NotImplementedException();
+            var serializer = new NetDataContractSerializer();
+
+            using(FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                serializer.WriteObject(fs, films);
+            }
         }
     }
 }

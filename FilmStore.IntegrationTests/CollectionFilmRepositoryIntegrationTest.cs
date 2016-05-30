@@ -6,7 +6,7 @@ using FilmStore.core;
 namespace FilmStore.IntegrationTests
 {
     [TestClass]
-    public class CollectionFilmRepositoryTest
+    public class CollectionFilmRepositoryIntegrationTest
     {
         [ClassInitialize]
         public static void RunOnceForAllTests(TestContext context)
