@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmStore.core
 {
-    interface IFilmRepository
+    public interface IFilmRepository
     {
         long Insert(Film film);
         Film SelectById(long id);
