@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FilmStore.core.Interfaces
 {
-    interface ISerializer
+    public interface ISerializer
     {
         ICollection<Film> Read();
-        void Write(ICollection<Film>);
+        void Write(ICollection<Film> films);
     }
 }

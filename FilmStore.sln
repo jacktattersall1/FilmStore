@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.core", "FilmStore
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.UnitTests", "FilmStore.UnitTests\FilmStore.UnitTests.csproj", "{80416C30-9E87-48CA-B06B-FAD682CEA537}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.IntegrationTests", "FilmStore.IntegrationTests\FilmStore.IntegrationTests.csproj", "{D134C40B-2213-4F08-BD5C-594C724613A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{80416C30-9E87-48CA-B06B-FAD682CEA537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80416C30-9E87-48CA-B06B-FAD682CEA537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80416C30-9E87-48CA-B06B-FAD682CEA537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D134C40B-2213-4F08-BD5C-594C724613A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D134C40B-2213-4F08-BD5C-594C724613A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D134C40B-2213-4F08-BD5C-594C724613A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D134C40B-2213-4F08-BD5C-594C724613A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

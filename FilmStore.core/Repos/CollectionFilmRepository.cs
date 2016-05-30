@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FilmStore.core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,10 +9,17 @@ namespace FilmStore.core
     {
         private ICollection<Film> films = new HashSet<Film>();
         private long id;
+        ISerializer serializer;
 
         public CollectionFilmRepository()
         {
 
+        }
+
+        public CollectionFilmRepository(ISerializer serializer)
+        {
+            this.serializer = serializer;
+            films = serializer.Read();
         }
 
         public CollectionFilmRepository(ICollection<Film> films)
@@ -29,6 +37,8 @@ namespace FilmStore.core
             films.Add(film);
             id++;
             film.Id = id;
+            if(serializer != null)
+                serializer.Write(films);
             return id;
         }
 

@@ -1,5 +1,7 @@
 ﻿using FilmStore.core;
+using FilmStore.core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +13,18 @@ namespace FilmStore.UnitTests
     [TestClass]
     public class CollectionFilmRepositoryTest
     {
-        private static Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 1 };
-        private static Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 2 };
-        private static List<Film> films = new List<Film>();
+        private Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 1 };
+        private Film film2 = new Film("Matrix", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 2 };
+        private List<Film> films = new List<Film>();
+        private Mock<ISerializer> serializer = new Mock<ISerializer>();
 
-        [ClassInitialize]
-        public static void RunOnceForAllTests(TestContext context)
+        [TestInitialize]
+        public void RunOnceForAllTests()
         {
+            films = new List<Film>();
             films.Add(film1);
             films.Add(film2);
+            serializer.Setup(s => s.Read()).Returns(films);
         }
 
         #region Unit Tests
@@ -139,10 +144,11 @@ namespace FilmStore.UnitTests
         {
             //Arrange
             CollectionFilmRepository sut = new CollectionFilmRepository(films);    // sut = system under test
-            
-            //Act
             Film film3 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 3, Genre.Science_Fiction);
-            film2.Id = 1;
+            film3.Id = 3;
+            films.Add(film3);
+
+            //Act
             ICollection<Film> returnedFilms = sut.SearchByTitle("Jurassic");
 
             //Assert
@@ -150,6 +156,40 @@ namespace FilmStore.UnitTests
         }
         #endregion
 
+        #region Interaction tests
+        //Tests the interaction of ISerializer read method
+        [TestMethod]
+        public void SelectByIdReturnsCorrectFilm_UsingSerializerMock()
+        {
+            //Arrange
+            CollectionFilmRepository sut = new CollectionFilmRepository(serializer.Object);
 
+            //Act
+            Film returnedFilm = sut.SelectById(2);
+
+            //Assert
+            Assert.AreEqual(film2, returnedFilm); 
+        }
+
+        [TestMethod]
+        public void InsertAddsFilmToCollection_UsingSerializerMock()
+        {
+            //Arrange
+            CollectionFilmRepository sut = new CollectionFilmRepository(serializer.Object);
+            Film film3 = new Film("Apocolypse", new DateTime(1984, 1, 20), 3, Genre.Science_Fiction) { Id = 3 };
+
+            int collectionCountAtTimeOfCall = 0;
+            serializer.Setup(
+                s => s.Write(It.IsAny<ICollection<Film>>())).Callback<ICollection<Film>>(
+                collection => collectionCountAtTimeOfCall = collection.Count());
+
+            //Act
+            long id = sut.Insert(film3);
+
+            //Assert
+            Assert.AreEqual(collectionCountAtTimeOfCall, 3);
+            serializer.Verify(s => s.Write(films), Times.Once);
+        }
+        #endregion
     }
 }
