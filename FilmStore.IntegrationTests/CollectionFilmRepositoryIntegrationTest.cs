@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using FilmStore.core;
+using Ninject;
+using FilmStore.core.Interfaces;
+using Ninject.Parameters;
 
 namespace FilmStore.IntegrationTests
 {
@@ -19,7 +22,10 @@ namespace FilmStore.IntegrationTests
         public void CollectionFilmRepository_IT()
         {
             //Arrange
-            CollectionFilmRepository sut = new CollectionFilmRepository(new Serializer());
+            var kernel = new StandardKernel(new DependencyInjection());
+            ISerializer serializer = kernel.Get<ISerializer>();
+            IFilmRepository sut = kernel.Get<IFilmRepository>(new ConstructorArgument("serializer" ,serializer));
+
             Film film1 = new Film("Aliens", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
             Film film2 = new Film("Predator", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
 
