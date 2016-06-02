@@ -16,7 +16,7 @@ namespace FilmStore.core
 
         }
 
-        public Film(string title, DateTime released, int stock, Enum genre)
+        public Film(string title, DateTime released, int stock, Genre genre)
         {
             Title = title;
             Released = released;
@@ -37,7 +37,7 @@ namespace FilmStore.core
                 stock = value;
             }
         }
-        public Enum Genre { get; set; }
+        public Genre Genre { get; set; }
 
         public override bool Equals(object obj)
         {

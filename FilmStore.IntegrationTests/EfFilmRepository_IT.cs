@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace FilmStore.IntegrationTests
 {
-    class EfFilmRepository_IT
+    [TestClass]
+    public class EfFilmRepository_IT
     {
         [ClassInitialize]
         public static void RunOnceForAllTests(TestContext context)
@@ -31,15 +32,15 @@ namespace FilmStore.IntegrationTests
         {
             IFilmRepository sut = new EfFilmRepository();
             Assert.AreEqual(5, sut.SelectAll().Count(), "assertion 1");
-            Assert.AreEqual(4, sut.SearchByTitle("the").Count()), "assertion 2");
+            Assert.AreEqual(4, sut.SearchByTitle("the").Count(), "assertion 2");
             Film film1 = new Film("Aliens", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction);
             Film film2 = new Film("The Matrix", new DateTime(1999, 5, 18), 2, Genre.Science_Fiction);
             //act
             long id1 = sut.Insert(film1);
             long id2 = sut.Insert(film2);
 
-            Assert.AreEqual(film1, sut.SelectById(id1), "assertion 3");
-            Assert.AreEqual(film2, sut.SelectById(id2), "assertion 4");
+            Assert.AreEqual(film1.Title, sut.SelectById(id1).Title, "assertion 3");
+            Assert.AreEqual(film2.Title, sut.SelectById(id2).Title, "assertion 4");
 
             film1 = sut.SelectById(id1);
             film1.Stock = 0;
@@ -51,13 +52,13 @@ namespace FilmStore.IntegrationTests
         }
 
         private static string sqlBatch =
-            "delete from film;" +
-            "dbcc checkident ('Film', reseed, 0);" +
-            "insert into Film (title, released, stock, genre) values ('The Shawshank Redemption','1994-01-01',10, 1) ;" +
-            "insert into Film (title, released, stock, genre) values ('The Godfather','1972-01-01',0, 1) ;" +
-            "insert into Film (title, released, stock, genre) values ('The Godfather: Part II','1974-01-01',10, 1) ;" +
-            "insert into Film (title, released, stock, genre) values ('Pulp Fiction','1994-01-01',10, 1) ;" +
-            "insert into Film (title, released, stock, genre) values ('The Good, the Bad and the Ugly','1966-01-01',10, 1) ;";
+            "delete from films;" +
+            "dbcc checkident ('Films', reseed, 0);" +
+            "insert into Films (title, released, stock, genre) values ('The Shawshank Redemption','1994-01-01',10, 1) ;" +
+            "insert into Films (title, released, stock, genre) values ('The Godfather','1972-01-01',0, 1) ;" +
+            "insert into Films (title, released, stock, genre) values ('The Godfather: Part II','1974-01-01',10, 1) ;" +
+            "insert into Films (title, released, stock, genre) values ('Pulp Fiction','1994-01-01',10, 1) ;" +
+            "insert into Films (title, released, stock, genre) values ('The Good, the Bad and the Ugly','1966-01-01',10, 1) ;";
         }
 }
 

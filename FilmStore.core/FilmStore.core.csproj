@@ -51,6 +51,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ISerializer.cs" />
+    <Compile Include="Migrations\201606021850102_InitialCreate.cs" />
+    <Compile Include="Migrations\201606021850102_InitialCreate.Designer.cs">
+      <DependentUpon>201606021850102_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606021913580_update1.cs" />
+    <Compile Include="Migrations\201606021913580_update1.Designer.cs">
+      <DependentUpon>201606021913580_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repos\CollectionFilmRepository.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Enums\Genre.cs" />
@@ -74,6 +83,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606021850102_InitialCreate.resx">
+      <DependentUpon>201606021850102_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021913580_update1.resx">
+      <DependentUpon>201606021913580_update1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
