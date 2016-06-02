@@ -61,6 +61,7 @@
       <DependentUpon>201606021913580_update1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Repos\CollectionFilmRepository.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Enums\Genre.cs" />
