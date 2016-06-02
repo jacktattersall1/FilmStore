@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace FilmStore.core.Models
 {
-    class Order : IOrder
+    public class Order : IOrder
     {
+        public Order()
+        {
+
+        }
+
         public List<Film> Films { get; set; }
 
         public DateTime OrderDate { get; set; }
