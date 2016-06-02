@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IOrder.cs" />
     <Compile Include="Interfaces\ISerializer.cs" />
     <Compile Include="Migrations\201606021850102_InitialCreate.cs" />
     <Compile Include="Migrations\201606021850102_InitialCreate.Designer.cs">
@@ -61,7 +62,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repos\CollectionFilmRepository.cs" />
-    <Compile Include="Film.cs" />
+    <Compile Include="Models\Film.cs" />
     <Compile Include="Enums\Genre.cs" />
     <Compile Include="Repos\EfFilmRepository.cs" />
     <Compile Include="FilmStoreContext.cs" />
@@ -72,9 +73,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Serializer.cs" />
+    <Compile Include="Services\XmlSerializer.cs" />
     <Compile Include="Repos\SqlFilmRepository.cs" />
-    <Compile Include="SqlOperation.cs" />
+    <Compile Include="UtilityClasses\SqlOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

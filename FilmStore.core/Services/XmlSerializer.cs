@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace FilmStore.core
 {
-    public class Serializer : ISerializer
+    public class XmlSerializer : ISerializer
     {
         private string path = @"C:\Users\jackt\OneDrive\Documents\FilmStoreSeralizes\object.xml";
 

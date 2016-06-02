@@ -14,7 +14,7 @@ namespace FilmStore.IntegrationTests
         public override void Load()
         {
             Bind<IFilmRepository>().To<CollectionFilmRepository>();
-            Bind<ISerializer>().To<Serializer>();
+            Bind<ISerializer>().To<XmlSerializer>();
         }
     }
 }
