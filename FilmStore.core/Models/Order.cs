@@ -9,9 +9,9 @@ namespace FilmStore.core.Models
 {
     public class Order : IOrder
     {
-        public Order()
+        public Order(List<Film> films)
         {
-
+            Films = films;
         }
 
         public List<Film> Films { get; set; }
@@ -24,12 +24,13 @@ namespace FilmStore.core.Models
 
         public bool AddFilm(Film film)
         {
-            throw new NotImplementedException();
+            Films.Add(film);
+            return true;
         }
 
         public bool RemoveFilm(Film film)
         {
-            throw new NotImplementedException();
+            return Films.Remove(film);
         }
     }
 }
