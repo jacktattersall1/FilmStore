@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmStore.core
 {
-    class FilmRepositoryDB : IFilmRepository
+    public class EfFilmRepository : IFilmRepository
     {
         public bool Delete(Film film)
         {
