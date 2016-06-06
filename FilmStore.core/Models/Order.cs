@@ -9,9 +9,9 @@ namespace FilmStore.core.Models
 {
     public class Order : IOrder
     {
-        public Order(List<Film> films)
+        public Order()
         {
-            Films = films;
+            Films = new List<Film>();
         }
 
         public List<Film> Films { get; set; }
@@ -24,6 +24,8 @@ namespace FilmStore.core.Models
 
         public bool AddFilm(Film film)
         {
+            if (Films.Contains(film))
+                return false;
             Films.Add(film);
             return true;
         }

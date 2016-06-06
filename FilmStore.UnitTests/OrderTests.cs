@@ -16,8 +16,7 @@ namespace FilmStore.UnitTests
         public void AddFilmShoulAddCorrectFilmToOrder()
         {
             //Arrange
-            List<Film> films = new List<Film>();
-            Order order = new Order(films);
+            Order order = new Order();
             Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 1 };
             
             //Act
@@ -32,8 +31,7 @@ namespace FilmStore.UnitTests
         public void RemoveFilmShouldRemoveGivenFilm()
         {
             //Arrange
-            List<Film> films = new List<Film>();
-            Order order = new Order(films);
+            Order order = new Order();
             Film film1 = new Film("Jurassic Park", new DateTime(1984, 1, 20), 5, Genre.Science_Fiction) { Id = 1 };
             Film film2 = new Film("The Matrix", new DateTime(1999, 5, 18), 2, Genre.Science_Fiction) { Id = 2 };
             order.Films.Add(film1);
@@ -43,7 +41,7 @@ namespace FilmStore.UnitTests
             bool removed = order.RemoveFilm(film1);
 
             //Assert
-            CollectionAssert.DoesNotContain(films, film1);
+            CollectionAssert.DoesNotContain(order.Films, film1);
             Assert.IsTrue(removed);
         }
     }
