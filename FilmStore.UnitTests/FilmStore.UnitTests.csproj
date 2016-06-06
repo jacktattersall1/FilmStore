@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="CollectionFilmRepositoryTest.cs" />
     <Compile Include="FilmTest.cs" />
+    <Compile Include="OrderService_IT.cs" />
     <Compile Include="OrderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

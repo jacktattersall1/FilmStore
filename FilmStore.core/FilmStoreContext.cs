@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using FilmStore.core.Properties;
+using FilmStore.core.Models;
 
 namespace FilmStore.core
 {
@@ -15,5 +16,6 @@ namespace FilmStore.core
 
         }
         public DbSet<Film> Films { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

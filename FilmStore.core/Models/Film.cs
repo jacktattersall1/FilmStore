@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FilmStore.core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -48,5 +49,7 @@ namespace FilmStore.core
         {
             return Id.GetHashCode();
         }
+
+        public virtual List<Order> Orders { get; set; }
     }
 }
