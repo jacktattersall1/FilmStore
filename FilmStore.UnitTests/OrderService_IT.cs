@@ -37,6 +37,9 @@ namespace FilmStore.UnitTests
             //being called with 1 or 2 as its argument
             filmRepository.Setup(fr => fr.SelectById(1L)).Returns(film1);
             filmRepository.Setup(fr => fr.SelectById(2L)).Returns(film2);
+
+            //inform IOrder mock what to return when its Films property is called
+            order.Setup(o => o.Films).Returns(films);
         }
 
         [TestMethod]
@@ -65,7 +68,7 @@ namespace FilmStore.UnitTests
         public void GetAllFilmsInOrderTest()
         {
             //Arrange
-            order.Setup(o => o.Films).Returns(films);
+            //order.Setup(o => o.Films).Returns(films);
 
             //Act
             List<Film> filmsInOrder = orderService.GetAllFilmsInOrder();
@@ -78,7 +81,7 @@ namespace FilmStore.UnitTests
         public void SaveOrderTest()
         {
             //Arrange
-            order.Setup(o => o.Films).Returns(films);
+            //order.Setup(o => o.Films).Returns(films);
             order.SetupProperty(o => o.UserName);
 
             //Act
