@@ -5,25 +5,25 @@ namespace FilmStore.core
 {
     public class OrderService
     {
-        private IFilmRepository object1;
-        private IOrderRepository object2;
-        private IOrder object3;
+        private IFilmRepository filmRepository;
+        private IOrderRepository orderRepository;
+        private IOrder order;
 
-        public OrderService(IFilmRepository object1, IOrderRepository object2, IOrder object3)
+        public OrderService(IFilmRepository filmRepository, IOrderRepository orderRepository, IOrder order)
         {
-            this.object1 = object1;
-            this.object2 = object2;
-            this.object3 = object3;
+            this.filmRepository = filmRepository;
+            this.orderRepository = orderRepository;
+            this.order = order;
         }
 
         public void AddFilmToOrder(long id)
         {
-            object3.AddFilm(object1.SelectById(id));
+            order.AddFilm(filmRepository.SelectById(id));
         }
 
-        public void RemoveFilmFromOrder(long v)
+        public void RemoveFilmFromOrder(long id)
         {
-            throw new NotImplementedException();
+            order.RemoveFilm(filmRepository.SelectById(id));
         }
     }
 }
