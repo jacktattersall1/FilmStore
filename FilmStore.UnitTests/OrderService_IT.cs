@@ -43,8 +43,8 @@ namespace FilmStore.UnitTests
         public void AddFilmToOrderTest()
         {
             //Arrange
-            filmRepository.Setup(fr => fr.SelectById(1L)).Returns(film1);
-            filmRepository.Setup(fr => fr.SelectById(2L)).Returns(film2);
+            //filmRepository.Setup(fr => fr.SelectById(1L)).Returns(film1);
+            //filmRepository.Setup(fr => fr.SelectById(2L)).Returns(film2);
             //order.Setup(o => o.AddFilm())
 
             //Act
@@ -56,6 +56,14 @@ namespace FilmStore.UnitTests
             order.Verify(o => o.AddFilm(It.Is<Film>(f => f.Id == 2)));
         }
 
+        [TestMethod]
+        public void RemoveFilmFromOrderTest()
+        {
+            //Act
+            orderService.RemoveFilmFromOrder(2L);
 
+            //Assert
+            order.Verify(o => o.RemoveFilm(It.Is<Film>(f => f.Id == 2)));
+        }
     }
 }

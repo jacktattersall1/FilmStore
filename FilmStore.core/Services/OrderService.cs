@@ -20,5 +20,10 @@ namespace FilmStore.core
         {
             object3.AddFilm(object1.SelectById(id));
         }
+
+        public void RemoveFilmFromOrder(long v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
