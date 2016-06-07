@@ -20,7 +20,7 @@ namespace FilmStore.UnitTests
         private OrderService orderService;
         Film film1 = new Film() { Id = 1, Title = "The Matrix", Stock = 5 };
         Film film2 = new Film() { Id = 2, Title = "Intensity", Stock = 5 };
-        Film film3 = new Film() { Id = 3, Title = "Jurassic Park", Stock = 5 };
+        Film film3 = new Film() { Id = 3, Title = "Jurassic Park", Stock = 0 };
         private List<Film> films;
 
         [TestInitialize]
@@ -72,6 +72,28 @@ namespace FilmStore.UnitTests
 
             //Assert
             Assert.AreEqual(3, filmsInOrder.Count);
+        }
+
+        [TestMethod]
+        public void SaveOrderTest()
+        {
+            //Arrange
+            order.Setup(o => o.Films).Returns(films);
+            order.SetupProperty(o => o.UserName);
+
+            //Act
+            orderService.SaveOrder("Fred");
+
+            //Assert
+            Assert.AreEqual(4, film1.Stock);
+            Assert.AreEqual(4, film2.Stock);
+            Assert.AreEqual(0, film3.Stock);
+
+            Assert.AreEqual(2, orderService.GetAllFilmsInOrder().Count);
+
+            orderRepository.Verify(or => or.Save(order.Object));
+
+            Assert.AreEqual("Fred", order.Object.UserName);
         }
     }
 }

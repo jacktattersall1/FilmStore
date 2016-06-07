@@ -31,5 +31,10 @@ namespace FilmStore.core
         {
             return order.Films;
         }
+
+        public void SaveOrder(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
