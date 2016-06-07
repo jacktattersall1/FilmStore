@@ -1,6 +1,7 @@
 ﻿using System;
 using FilmStore.core.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FilmStore.core
 {
@@ -32,9 +33,12 @@ namespace FilmStore.core
             return order.Films;
         }
 
-        public void SaveOrder(string v)
+        public void SaveOrder(string userName)
         {
-            throw new NotImplementedException();
+            order.UserName = userName;
+            order.Films.RemoveAll(film => film.Stock == 0);
+            order.Films.ForEach(film => film.Stock -= 1);
+            orderRepository.Save(order);
         }
     }
 }
