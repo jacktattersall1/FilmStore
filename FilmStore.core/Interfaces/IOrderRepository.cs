@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmStore.core.Interfaces
 {
-    interface IOrderRepository
+    public interface IOrderRepository
     {
         long Save(IOrder iOrder);
     }

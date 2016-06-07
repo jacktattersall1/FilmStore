@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Repos\CollectionFilmRepository.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Enums\Genre.cs" />
