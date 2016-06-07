@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace FilmStore.UnitTests
 {
     [TestClass]
-    class OrderService_IT
+    public class OrderService_IT
     {
         //create mock objects
         private Mock<IFilmRepository> filmRepository = new Mock<IFilmRepository>();
@@ -43,6 +43,10 @@ namespace FilmStore.UnitTests
         public void AddFilmToOrderTest()
         {
             //Arrange
+            filmRepository.Setup(fr => fr.SelectById(1L)).Returns(film1);
+            filmRepository.Setup(fr => fr.SelectById(2L)).Returns(film2);
+            //order.Setup(o => o.AddFilm())
+
             //Act
             orderService.AddFilmToOrder(1L);
             orderService.AddFilmToOrder(2L);

@@ -16,9 +16,9 @@ namespace FilmStore.core
             this.object3 = object3;
         }
 
-        public void AddFilmToOrder(long v)
+        public void AddFilmToOrder(long id)
         {
-            throw new NotImplementedException();
+            object3.AddFilm(object1.SelectById(id));
         }
     }
 }
