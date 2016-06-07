@@ -29,7 +29,7 @@ namespace FilmStore.core
 
         public List<Film> GetAllFilmsInOrder()
         {
-            throw new NotImplementedException();
+            return order.Films;
         }
     }
 }
