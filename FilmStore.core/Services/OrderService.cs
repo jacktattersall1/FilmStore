@@ -1,5 +1,6 @@
 ﻿using System;
 using FilmStore.core.Interfaces;
+using System.Collections.Generic;
 
 namespace FilmStore.core
 {
@@ -24,6 +25,11 @@ namespace FilmStore.core
         public void RemoveFilmFromOrder(long id)
         {
             order.RemoveFilm(filmRepository.SelectById(id));
+        }
+
+        public List<Film> GetAllFilmsInOrder()
+        {
+            throw new NotImplementedException();
         }
     }
 }

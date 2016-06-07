@@ -62,9 +62,16 @@ namespace FilmStore.UnitTests
         }
 
         [TestMethod]
-        public void MyTestMethod()
+        public void GetAllFilmsInOrderTest()
         {
+            //Arrange
+            order.Setup(o => o.Films).Returns(films);
 
+            //Act
+            List<Film> filmsInOrder = orderService.GetAllFilmsInOrder();
+
+            //Assert
+            Assert.AreEqual(3, filmsInOrder.Count);
         }
     }
 }
