@@ -69,8 +69,13 @@
     <Compile Include="Migrations\201606061706500_manyToMany.Designer.cs">
       <DependentUpon>201606061706500_manyToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606081802064_dateTime2.cs" />
+    <Compile Include="Migrations\201606081802064_dateTime2.Designer.cs">
+      <DependentUpon>201606081802064_dateTime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Interfaces\IOrderService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Repos\CollectionFilmRepository.cs" />
     <Compile Include="Models\Film.cs" />
@@ -110,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606061706500_manyToMany.resx">
       <DependentUpon>201606061706500_manyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606081802064_dateTime2.resx">
+      <DependentUpon>201606081802064_dateTime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

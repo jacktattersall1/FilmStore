@@ -1,6 +1,7 @@
 ﻿using FilmStore.core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace FilmStore.core.Models
 
         public List<Film> Films { get; set; }
 
+        [Column(TypeName = "datetime2")]
         public DateTime OrderDate { get; set; }
 
         public int OrderId { get; set; }

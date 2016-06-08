@@ -59,6 +59,6 @@ namespace FilmStore.IntegrationTests
             "insert into Films (title, released, stock, genre) values ('The Godfather: Part II','1974-01-01',10, 1) ;" +
             "insert into Films (title, released, stock, genre) values ('Pulp Fiction','1994-01-01',10, 1) ;" +
             "insert into Films (title, released, stock, genre) values ('The Good, the Bad and the Ugly','1966-01-01',10, 1) ;";
-        }
+    }
 }
 

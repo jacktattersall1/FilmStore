@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,8 @@ namespace FilmStore.core
         [Key]
         public long Id { get; set; }
         public string Title { get; set; }
+
+        [Column(TypeName = "datetime2")]
         public DateTime Released { get; set; }
         public int Stock {
             get { return stock; }

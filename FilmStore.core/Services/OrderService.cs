@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FilmStore.core
 {
-    public class OrderService
+    public class OrderService : IOrderService
     {
         private IFilmRepository filmRepository;
         private IOrderRepository orderRepository;

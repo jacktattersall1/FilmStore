@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FilmStore.core.Repos
 {
-    class EFOrderRepository : IOrderRepository
+    public class EFOrderRepository : IOrderRepository
     {
         public long Save(IOrder iOrder)
         {
