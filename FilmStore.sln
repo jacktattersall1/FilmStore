@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.UnitTests", "Film
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.IntegrationTests", "FilmStore.IntegrationTests\FilmStore.IntegrationTests.csproj", "{D134C40B-2213-4F08-BD5C-594C724613A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.Portal", "FilmStore.Portal\FilmStore.Portal.csproj", "{CF2D4B53-057F-4B49-B24A-B67DE2961423}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmStore.Portal.Tests", "FilmStore.Portal.Tests\FilmStore.Portal.Tests.csproj", "{B405E892-6CC4-41E7-A0AE-C657A5560BDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{D134C40B-2213-4F08-BD5C-594C724613A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D134C40B-2213-4F08-BD5C-594C724613A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D134C40B-2213-4F08-BD5C-594C724613A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF2D4B53-057F-4B49-B24A-B67DE2961423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2D4B53-057F-4B49-B24A-B67DE2961423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2D4B53-057F-4B49-B24A-B67DE2961423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2D4B53-057F-4B49-B24A-B67DE2961423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B405E892-6CC4-41E7-A0AE-C657A5560BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B405E892-6CC4-41E7-A0AE-C657A5560BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B405E892-6CC4-41E7-A0AE-C657A5560BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B405E892-6CC4-41E7-A0AE-C657A5560BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
