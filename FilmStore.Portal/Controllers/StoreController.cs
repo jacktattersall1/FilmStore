@@ -61,9 +61,27 @@ namespace FilmStore.Portal.Controllers
             }
         }
 
+        public ActionResult Edit(int id)
+        {
+            EfFilmRepository repo = new EfFilmRepository();
+            return View(repo.SelectById(id));
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult Edit(Film film)
         {
+            EfFilmRepository repo = new EfFilmRepository();
+            repo.Update(film);
 
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return RedirectToAction("Edit");
+            }
         }
 
     }
