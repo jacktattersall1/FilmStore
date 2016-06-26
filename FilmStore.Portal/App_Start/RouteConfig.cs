@@ -13,10 +13,17 @@ namespace FilmStore.Portal
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //URL store/list/the
+            routes.MapRoute(
+                name: "List",
+                url: "Store/List/{search}",
+                defaults: new { Controller = "Store", action = "List", search = UrlParameter.Optional }
+                );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Store", action = "List", id = UrlParameter.Optional }
             );
         }
     }

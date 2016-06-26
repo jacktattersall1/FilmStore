@@ -1,7 +1,13 @@
-﻿namespace FilmStore.core
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FilmStore.core
 {
     public enum Genre
     {
-        Science_Fiction
+        [Display(Name = "Science Fiction")]
+        Science_Fiction,
+        [Display(Name = "Romance")]
+        Romance
+
     }
 }

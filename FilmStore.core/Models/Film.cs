@@ -30,8 +30,12 @@ namespace FilmStore.core
         public long Id { get; set; }
         public string Title { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Column(TypeName = "datetime2")]
         public DateTime Released { get; set; }
+
         public int Stock {
             get { return stock; }
             set
